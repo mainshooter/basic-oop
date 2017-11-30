@@ -1,4 +1,5 @@
 <?php
+require_once 'Info.Interface.php';
   interface CarInterface {
 
     /**
@@ -43,7 +44,7 @@
 
   }
 
-  class Car implements CarInterface {
+  class Car implements CarInterface, InfoInterface {
 
     private $brand;
     private $model;

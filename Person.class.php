@@ -1,6 +1,6 @@
 <?php
-
-  class Person {
+  require_once 'Info.Interface.php';
+  class Person implements InfoInterface {
 
     private $name;
     private $age;
@@ -36,7 +36,7 @@
       }
     }
 
-    public function getPersonInfo() {
+    public function getInfo() {
       $personArray['name'] = $this->getName();
       $personArray['age'] = $this->getAge();
       return($personArray);
@@ -45,7 +45,7 @@
 
   $Person = new Person('Peter', 19);
   echo "<pre>";
-    var_dump($Person->getPersonInfo());
+    var_dump($Person->getInfo());
   echo "</pre>";
 
   if ($Person->checkIfPersonIsAdold() === true) {
