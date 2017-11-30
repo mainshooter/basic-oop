@@ -49,7 +49,7 @@ require_once 'Info.Interface.php';
     private $brand;
     private $model;
     private $fuel;
-    private $color;
+    // private $color;
 
     /**
      * Runs when the script is defined
@@ -61,6 +61,19 @@ require_once 'Info.Interface.php';
       $this->brand = $brand;
       $this->model = $model;
       $this->color = $this->setColor($color);
+    }
+
+    public function __set($propertyName, $propertyValue) {
+      if ($propertyName == 'color') {
+          $this->setColor($propertyValue);
+      }
+      else {
+        die("<h1>You can't set this</h1>");
+      }
+    }
+
+    public function __get($properyName) {
+      die("We don't have this property");
     }
 
     /**
